@@ -7,15 +7,22 @@
 	} 
 	//Start Session
 	session_start();
-	//If logged in already, redirect to index.
+	//If logged in already, check if logout was pressed and handle, or redirect to index.
 	if (isset($_SESSION["loggedin"])) {
-		header("Location: index.php");
-		exit();
-	} else {
+		if ($_GET['action'] == "logout") {
+			unset($_SESSION["loggedin"]);
+			unset($_SESSION["loginfailure"]);
+			header("Location: index.php");
+			exit();
+		}
+	} else { //If not logged in, test if login successful and give appropriate feedback
 		if ($_POST['username'] == "test" && $_POST['password'] == "pass") {
 			$_SESSION['loggedin'] = $_POST['username'];
+		} else {
+			$_SESSION['loginfailure'] = true;
 		}
-		header("Location: index.php?content=personal");
-		exit;
 	}
+	//Redirect back to webpage
+	header("Location: index.php?loginattempt=true");
+	exit();
 ?>
