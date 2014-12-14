@@ -16,7 +16,7 @@ session_start();
 	<body>
 		<header></header>
 		<script>
-			$("header").load("header.html");
+			$("header").load("header.php");
 		</script>
 		<div id="content">
 			<?php
@@ -92,6 +92,11 @@ session_start();
 							<a href="https://github.com/dillonjbyrne/"><img src="icons/github.png"></a>
 						</p>
 					<?php
+						break;
+					case "logout":
+						unset($_SESSION["loggedin"]);
+						unset($_SESSION["loginfailure"]);
+						header("Location: index.php");
 						break;
 				}
 			?>

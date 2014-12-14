@@ -25,7 +25,7 @@
 	<body>
 		<header></header>
 		<script>
-			$("header").load("header.html");
+			$("header").load("header.php");
 		</script>
 	</body>
 </html>
