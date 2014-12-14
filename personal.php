@@ -6,26 +6,26 @@
 		header("Location: $redirect");
 		exit;
 	}
-	//Check for login, redirect if not
+	//Check for login, display login prompt if not
 	if (!isset($_SESSION["loggedin"])) {
-		header("Location: index.php?content=personal");
-	}
+		//Check for previous login failure. Display error if present, display generic message if not.
+		if (isset($_SESSION['loginfailure'])) {
+				echo "<p>Previous login failed, please try again.</p>";
+		} else {
+			echo "<p>Personal can only be accessed by myself and friends (and graders!), please login.</p>";
+		}	
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Dillon's Personal Stuff</title>
-		<link rel="stylesheet" href="css/main.css">
-		<style>
+		<form action="login.php" method="post">
+			<label for="username">Username:</label>
+			<input type="text" name="username" id="username">
+			<label for="password">Password:</label>
+			<input type="password" name="password" id="password">
+			<input type="submit" name="submit" class="submit" value="Log In">
+		</form>
+<?php
+	} else {
+?>
 		
-		</style>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	</head>
-
-	<body>
-		<header></header>
-		<script>
-			$("header").load("header.php");
-		</script>
-	</body>
-</html>
+<?php
+	}						
+?>
