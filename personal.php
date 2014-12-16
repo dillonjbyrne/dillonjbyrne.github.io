@@ -20,12 +20,17 @@
 			<input type="text" name="username" id="username">
 			<label for="password">Password:</label>
 			<input type="password" name="password" id="password">
-			<input type="submit" name="submit" class="submit" value="Log In">
+			<input type="submit" name="submit" value="Log In">
 		</form>
 <?php
 	} else {
 ?>
-		
+		<p>I'm sure if you're my friend, you've seen this already. But if you haven't, you need to!</p>
+		<iframe width="853" height="480" src="//www.youtube.com/embed/UJSyY5HZNYw" frameborder="0" allowfullscreen></iframe>
+		<div id="column1">
+			<p>Take a survey about what you think of my website!</p>
+			<button id="survey" onclick="loadContent('survey')"></button>
+		</div>
 <?php
 	}						
 ?>

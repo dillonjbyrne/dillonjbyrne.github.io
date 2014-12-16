@@ -1,0 +1,15 @@
+<form id="surveyform" action="index.php" method="post">
+	<label for="name" class="survey">Name:</label>
+	<input type="text" name="name" id="name" class="survey" title="Please enter your name.">
+	<label for="age" class="survey">Age:</label>
+	<input type="number" name="age" id="age" class="survey" title="Please enter your age.">
+	<div id="slider" title="Try using the slider to select your age!"></div>
+	<label for="gender" class="survey">Gender:</label>
+	<input type="radio" name="gender" class="gender" value="male" title="Please select your gender.">
+	<label for="male">Male</label>
+	<input type="radio" name="gender" class="gender" value="female" title="Please select your gender.">
+	<label for="female">Female</label>
+	<label for="comments" class="survey">Comments:</label>
+	<textarea id="comments" name="comments" form="surveyform" class="survey" cols=50 rows=10 title="Let me know what you think of my website!"></textarea>
+	<button id="submit" type="submit" name="sumbit" value="Submit" class="survey"></button>
+</form>

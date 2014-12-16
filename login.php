@@ -23,6 +23,7 @@
 		}
 	}
 	//Redirect back to webpage
-	header("Location: index.php?loginattempt=true");
+	$_SESSION['personal'] = true;
+	header("Location: index.php");
 	exit();
 ?>
